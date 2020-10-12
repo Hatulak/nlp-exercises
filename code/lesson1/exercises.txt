@@ -1,0 +1,15 @@
+Zadanie 1
+
+Napisz program, który na podstawie załączonego pliku przyklad.txt:
+
+- utworzy słownik wszystkich słów i zapisze go w pliku slownik.txt, każde słowo w nowej linii
+
+- w 20% wylosowanych słów w pliku przyklad.txt dokona od jednej do trzech modyfikacji w postaci: zamiany litery, usunięcia litery, dodania litery. Zamieniony tekst zapisze do pliku przyklad_z_bledami.txt
+
+- poprawi błędy w pliku przyklad_z_bledami.txt wyszukując słowa najbliższe w pliku slownik.txt używając odległości edycyjnej i zapisze wynik do pliku przyklad_poprawiony.txt
+
+- obliczy ilość błędów które pozostaly po poprawieniu porównując wynik z plikiem oryginalnym
+
+Zadanie 2
+
+Napisz program który z wykorzystaniem wyrażeń regularnych znajdzie wszystkie czasy przebiegnięcia maratonu wymienione w maraton.txt
