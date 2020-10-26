@@ -6,7 +6,7 @@ def main():
         text = f.read()
 
         print(re.findall("2:[0-9]{2}:[0-9]{2}", text))
-        print(re.findall("[0-9]:[0-9]{2}:[0-9]{2}", text))
+        # print(re.findall("[0-9]:[0-9]{2}:[0-9]{2}", text))
 
 
 

@@ -1,0 +1,8 @@
+CREATE INDEX paper_title_idx ON article USING GIN (to_tsvector('english',paper_title))
+
+CREATE INDEX keywords_idx ON article USING GIN (to_tsvector('english',keywords))
+
+CREATE INDEX abstract_idx ON article USING GIN (to_tsvector('english',abstract))
+
+CREATE INDEX session_idx ON article USING GIN (to_tsvector('english',session))
+
