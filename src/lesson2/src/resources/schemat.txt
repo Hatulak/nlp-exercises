@@ -1,0 +1,39 @@
+
+CREATE TABLE public.article
+(
+    paper_id bigint NOT NULL,
+    paper_title text COLLATE pg_catalog."default",
+    keywords text COLLATE pg_catalog."default",
+    abstract text COLLATE pg_catalog."default",
+    session text COLLATE pg_catalog."default",
+    year integer,
+    CONSTRAINT article_pkey PRIMARY KEY (paper_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.article
+    OWNER to postgres;
+
+CREATE INDEX abstract_idx
+    ON public.article USING gin
+    (to_tsvector('english'::regconfig, abstract))
+    TABLESPACE pg_default;
+
+
+CREATE INDEX keywords_idx
+    ON public.article USING gin
+    (to_tsvector('english'::regconfig, keywords))
+    TABLESPACE pg_default;
+
+
+CREATE INDEX paper_title_idx
+    ON public.article USING gin
+    (to_tsvector('english'::regconfig, paper_title))
+    TABLESPACE pg_default;
+
+
+CREATE INDEX session_idx
+    ON public.article USING gin
+    (to_tsvector('english'::regconfig, session))
+    TABLESPACE pg_default;

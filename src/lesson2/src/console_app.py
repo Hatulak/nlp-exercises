@@ -31,7 +31,7 @@ def create_tokens(text_to_seach):
     return [token.text for token in doc if not token.is_stop]
 
 def main():
-    engine = create_engine('postgresql://postgres:postgres@localhost:5432/nlp', echo=True)
+    engine = create_engine('postgresql://postgres:postgres@localhost:5432/nlp', echo=True)  # postgres user config
     metadata = MetaData()
     articles = Table('article', metadata,
                      Column("paper_id", Integer, primary_key=True),
@@ -42,13 +42,6 @@ def main():
                      Column("year", Integer))
 
     conn = engine.connect()
-    # s = select([articles])
-    # result = conn.execute(s)
-    # [print(row) for row in result]
-
-    # conn = psycopg2.connect(**params)
-    #
-    # cur = conn.cursor()
 
     while 1:
         print_menu()
