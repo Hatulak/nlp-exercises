@@ -1,10 +1,9 @@
 import spacy
-import os
+
 from sqlalchemy import create_engine
-from sqlalchemy.sql import select, text
+from sqlalchemy.sql import text
 from sqlalchemy import Table, Column, Integer, String, MetaData
 
-from src.lesson2.src.utils.config import config
 
 
 def print_menu():
@@ -31,7 +30,7 @@ def create_tokens(text_to_seach):
     return [token.text for token in doc if not token.is_stop]
 
 def main():
-    engine = create_engine('postgresql://postgres:postgres@localhost:5432/nlp', echo=True)  # postgres user config
+    engine = create_engine('postgresql://postgres:postgres@localhost:5432/nlp', echo=False)
     metadata = MetaData()
     articles = Table('article', metadata,
                      Column("paper_id", Integer, primary_key=True),
