@@ -31,7 +31,19 @@ def main():
 
     tokens_lemma_nouns = [t.lemma_ for t in tokens if t.pos_ == 'NOUN']
 
-    print(Counter(tokens_lemma_nouns).most_common(5))
+    top5 = Counter(tokens_lemma_nouns).most_common(5)
+    print("Top 5 most common nouns with number of occurrences: " + str(top5))
+
+    top2 = [t[0] for t in top5[:2]]
+
+    print("Adjectives for 2 most common nouns: " + str(top2))
+    for adjective in adjectives:
+        for top in top2:
+            if adjective.head.lemma_ == top:
+                print(adjective.text, adjective.head)
+
+
+
 
 if __name__ == '__main__':
     main()
