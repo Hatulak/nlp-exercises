@@ -37,8 +37,8 @@ def main():
     top2 = [t[0] for t in top5[:2]]
 
     print("Adjectives for 2 most common nouns: " + str(top2))
-    for adjective in adjectives:
-        for top in top2:
+    for top in top2:
+        for adjective in adjectives:
             if adjective.head.lemma_ == top:
                 print(adjective.text, adjective.head)
 
